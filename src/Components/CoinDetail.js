@@ -145,7 +145,8 @@ function CoinDetail() {
             </Filters>
 
             <MainCont>
-            {loader?<ThreeDots
+            {loader?
+            <Loader><ThreeDots
                 height="80" 
                 width="80" 
                 radius="9"
@@ -154,7 +155,8 @@ function CoinDetail() {
                 wrapperStyle={{}}
                 wrapperClassName=""
                 visible={true}
-                />:
+                />
+                </Loader>:
             
 
 
@@ -260,7 +262,8 @@ function CoinDetail() {
 
                 </ModalData>
             </Modal>
-
+            
+            {!loader?
             <Pages>
 
             {totalPages?.map(p => {
@@ -284,7 +287,8 @@ function CoinDetail() {
                 )
                 
             })}
-            </Pages>
+            </Pages>:""
+            }
 
         </Container>
     )
@@ -467,6 +471,15 @@ const Base = styled.th`
     /* text-align: center; */
     /* vertical-align: middle; */
     padding: 15px 0px;
+
+`
+
+const Loader = styled.div`
+
+    position: relative;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%,-50%);
 
 `
 
